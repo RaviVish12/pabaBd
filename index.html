@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2b1450">
+<title>Happy 22nd Birthday, Pamoditha! ✈️</title>
+<meta name="description" content="A birthday journey around the world for Pamoditha.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=DM+Mono:wght@500&family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-state="intro">
+
+<!-- 1. Full-screen cross-fading backgrounds (videos are added by app.js from config.js) -->
+<div id="bg" class="bg" aria-hidden="true"></div>
+
+<!-- 2. The world map + plane + sparkle trail -->
+<canvas id="map" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- 3. HUD: live coordinates, progress, music -->
+<header class="hud">
+  <div class="hud__coords" aria-hidden="true">
+    <div class="coord"><span class="coord__k">LAT</span><span class="coord__v" id="lat">--</span></div>
+    <div class="coord"><span class="coord__k">LON</span><span class="coord__v" id="lon">--</span></div>
+    <div class="coord"><span class="coord__k" id="togoK">KM</span><span class="coord__v" id="togo">--</span></div>
+  </div>
+  <button id="music" class="icon-btn" type="button" aria-pressed="false" aria-label="Play birthday music">
+    <span class="icon-btn__on" aria-hidden="true">🎵</span><span class="icon-btn__off" aria-hidden="true">🔇</span>
+  </button>
+</header>
+<ol class="progress" id="progress" aria-hidden="true"></ol>
+
+<!-- 4. Stop content: frosted card + polaroids + controls -->
+<main class="stage" id="stage">
+  <section class="panel" id="panel">
+    <article class="card" id="card" aria-live="off">
+      <p class="card__tag" id="cardTag"></p>
+      <h1 class="card__title" id="cardTitle"></h1>
+      <p class="card__place" id="cardPlace"></p>
+      <p class="card__msg" id="cardMsg"></p>
+    </article>
+    <div class="actions" id="actions">
+      <button id="nextBtn" class="btn btn--primary" type="button"><span id="nextLabel">Take off</span> <span aria-hidden="true" id="nextIcon">✈️</span></button>
+      <div class="actions__final" id="finalActions" hidden>
+        <button id="confettiBtn" class="btn btn--primary" type="button">🎉 Pop confetti</button>
+        <button id="againBtn" class="btn btn--ghost" type="button">✈️ Fly again</button>
+      </div>
+    </div>
+  </section>
+  <div class="polaroids" id="polaroids"></div>
+</main>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="live" class="sr-only" aria-live="polite"></div>
+<audio id="audio" loop preload="none"></audio>
+
+<script src="worldmap.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
